@@ -6,7 +6,11 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+### Day 22
+* project: Pong Game
+
 ### Day 20 and 21
+* inheritance
 * project: Snake Game
 
 ### Day 19
