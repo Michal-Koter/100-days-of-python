@@ -8,8 +8,8 @@ RIGHT, UP, LEFT, DOWN = 0, 90, 180, 270
 class Snake:
     def __init__(self):
         self.segments = []
+        self.head = None
         self.create_snake()
-        self.head = self.segments[0]
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
@@ -30,6 +30,7 @@ class Snake:
             new_x = self.segments[index - 1].xcor()
             new_y = self.segments[index - 1].ycor()
             self.segments[index].goto(new_x, new_y)
+        self.head = self.segments[0]
         self.head.forward(MOVE_DISTANCE)
 
     def turn_up(self):
@@ -47,3 +48,9 @@ class Snake:
     def turn_left(self):
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
+
+    def reset(self):
+        for segment in self.segments:
+            segment.hideturtle()
+        self.segments.clear()
+        self.create_snake()
