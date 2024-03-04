@@ -6,6 +6,10 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+### Day 24
+* add high score history to Snake Game
+* work with files
+
 ### Day 23
 * project: turtle crossing the road game
 
