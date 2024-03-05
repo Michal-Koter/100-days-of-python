@@ -6,6 +6,11 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+### Day 25
+* work witch CSV
+* Pandas library
+* project: U.S. State Game
+
 ### Day 24
 * add high score history to Snake Game
 * work with files
