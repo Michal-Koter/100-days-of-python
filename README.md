@@ -6,6 +6,10 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+### Day 26
+* List and dictionary comprehension
+* project: NATO Alphabet
+
 ### Day 25
 * work witch CSV
 * Pandas library
