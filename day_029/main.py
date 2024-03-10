@@ -2,11 +2,10 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 FONT = ("Arial", 12)
 
-
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def generate_password():
     letters = (
@@ -31,34 +30,56 @@ def generate_password():
     pyperclip.copy(new_password)
 
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
-
 def save_password():
     website = website_entry.get()
     login = login_entry.get()
     password = password_entry.get()
+    new_data = {
+        website: {
+            "login": login,
+            "password": password
+        }
+    }
 
     if website == "" or login == "" or password == "":
         messagebox.showerror(title="Oops", message="Pleas make sure you haven't left any fields empty.")
         return None
-
-    is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered:\n"
-                                                          f"Login: {login}\n"
-                                                          f"Password: {password}\n"
-                                                          f"It is okey to save?")
-
-    if is_ok:
+    else:
         website_entry.delete(0, END)
         login_entry.delete(0, END)
         password_entry.delete(0, END)
 
-        line = f"{website} | {login} | {password}\n"
+        try:
+            with open("password.json", "r") as file:
+                data = json.load(file)
+        except (FileNotFoundError, json.decoder.JSONDecodeError):
+            with open("password.json", "w") as file:
+                json.dump(new_data, file, indent=4)
+        else:
+            data.update(new_data)
+            with open("password.json", "w") as file:
+                json.dump(data, file, indent=4)
 
-        with open("password.txt", "a") as file:
-            file.write(line)
+
+def find_password():
+    website = website_entry.get()
+
+    try:
+        with open("password.json", "r") as file:
+            data = json.load(file)
+    except (FileNotFoundError, json.decoder.JSONDecodeError):
+        messagebox.showerror(title="Error", message=f"No data file found")
+    else:
+        if website in data:
+            login = data[website]["login"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Login: {login}\nPassword: {password}")
+        else:
+            messagebox.showerror(title="Error", message=f"No details for {website} exists.")
 
 
-# ---------------------------- UI SETUP ------------------------------- #
+
+
 window = Tk()
 window.title("Password Manager")
 window.config(padx=40, pady=50)
@@ -71,9 +92,12 @@ canvas.grid(row=0, column=1)
 website_label = Label(text="Website:", font=FONT)
 website_label.grid(row=1, column=0, sticky=W, padx=10)
 
-website_entry = Entry(width=50)
-website_entry.grid(row=1, column=1, columnspan=2, sticky=W, pady=5)
+website_entry = Entry(width=31)
+website_entry.grid(row=1, column=1, sticky=W, pady=5)
 website_entry.focus()
+
+search_btn = Button(text="Search", command=find_password, font=("Ariel", 8), width=16)
+search_btn.grid(row=1, column=2)
 
 login_label = Label(text="Login:", font=FONT)
 login_label.grid(row=2, column=0, sticky=W, padx=10)
@@ -87,7 +111,7 @@ password_label.grid(row=3, column=0, sticky=W, padx=10)
 password_entry = Entry(width=31)
 password_entry.grid(row=3, column=1, sticky=W, pady=5)
 
-generate_pass_btn = Button(text="Generate password", command=generate_password, font=("Ariel", 8))
+generate_pass_btn = Button(text="Generate password", command=generate_password, font=("Ariel", 8), width=16)
 generate_pass_btn.grid(row=3, column=2)
 
 add_btn = Button(text="Add", width=42, command=save_password)
