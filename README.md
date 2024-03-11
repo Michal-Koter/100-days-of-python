@@ -6,6 +6,9 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+### Day 31
+*project: Flashcard App
+
 ### Day 30
 * exception handling
 * add exception handling to NATO Alphabet
