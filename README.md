@@ -6,9 +6,15 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 33
+* HTTP requests
+* API
+* project: ISS Overhead Notifier
+
 ## Day 32
 * smtplib
 * datetime module
+* project: Automated Birthday Wisher
 
 ### Day 31
 * project: Flashcard App
