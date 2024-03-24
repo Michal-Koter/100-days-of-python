@@ -2,9 +2,10 @@ import requests
 from twilio.rest import Client
 import os
 
-account_sid = os.environ.get("TWILIO_SID")
-auth_token = os.environ.get("TWILIO_AUTH")
-
+ACCOUNT_SID = os.environ.get("TWILIO_SID")
+AUTH_TOKEN = os.environ.get("TWILIO_AUTH")
+PHONE_NUMBER_FROM = "twilio_phone"
+PHONE_NUMBER_TO = "my_phone"
 
 weather_param = {
     "lat": 54.352024,
@@ -26,11 +27,11 @@ for data in weather_data["list"]:
         break
 
 if will_rain:
-    twilio_client = Client(account_sid, auth_token)
+    twilio_client = Client(ACCOUNT_SID, AUTH_TOKEN)
     message = twilio_client.messages.create(
         body="It's going to rain today. Remember to bring an umbrella",
-        from_="+16502414415",
-        to="+420733702820"
+        from_="twilio_phone",
+        to=""
     )
 
     print(message.sid)
