@@ -6,6 +6,9 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 38
+* Workout Tracking Using Google Sheets
+
 ## Day 37
 * HTTP methods: POST, PUT, DELETE
 * HTTP headers
