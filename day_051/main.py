@@ -8,6 +8,6 @@ CHROME_DRIVER_PATH = "/Users/koter/Downloads/chromedriver"
 X_EMAIL = os.environ.get("EMAIL")
 X_PASSWORD = os.environ.get("PASSWORD")
 
-bot = InternetSpeedTwitterBot()
+bot = InternetSpeedTwitterBot(PROMISED_DOWN, PROMISED_UP)
 bot.get_internet_speed()
-# bot.tweet_at_provider()
+bot.tweet_at_provider(X_EMAIL, X_PASSWORD)
