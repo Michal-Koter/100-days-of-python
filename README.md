@@ -6,6 +6,9 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 52
+* Instagram Follower Bot
+
 ## Day 51
 * Internet Speed X (Twitter) Complaint Bot
 
