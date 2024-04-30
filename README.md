@@ -6,6 +6,10 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 54
+* Flask
+* Decorators
+
 ## Day 53
 * Job Automation:<br>
 scrap data from a Zillow clone and sending it via google forms to a spreadsheet
