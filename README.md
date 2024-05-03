@@ -6,6 +6,10 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 56 
+* Render HTML file with Flask
+* project: Name Card
+
 ## Day 55
 * Flask Routing
 * Decorators cont.
