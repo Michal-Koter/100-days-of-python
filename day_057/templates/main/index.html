@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="static/css/style.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="top">
+        <div class="title"><h1>My Blog</h1></div>
+    </div>
+
+    {% for post in posts %}
+    <div class="container">
+        <div class="card">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.subtitle }}</p>
+            <a href="{{ url_for('show_post', num=post.id) }}">Read more</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+<footer>
+    <p>Made with ♥️ in Poland.</p>
+</footer>
+</html>
