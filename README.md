@@ -6,6 +6,9 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 58
+* Bootstrap
+
 ## Day 57
 * Jinja
 * project: Blog
