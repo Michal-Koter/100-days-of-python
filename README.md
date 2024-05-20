@@ -6,8 +6,11 @@ In this repository, I document my progress while doing the [100 Days of Code: Th
 
 from the last day to the first
 
+## Day 60
+* Forms with Flask
+
 ## Day 59
-Blog using Bootstrap
+* Blog using Bootstrap
 
 ## Day 58
 * Bootstrap
